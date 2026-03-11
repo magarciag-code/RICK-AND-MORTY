@@ -1,0 +1,144 @@
+/* --- Base y Fondo Compacto --- */
+body {
+  background-color: #121214; /* Gris carbono profundo */
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #e1e1e6;
+  padding: 30px;
+}
+
+/* --- Grid Ajustado --- */
+.rm-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); /* Más anchos pero bajos */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Card Compacto y Horizontal --- */
+.rm-card {
+  background: #19191c;
+  border: 1px solid #29292e;
+  border-radius: 12px;
+  display: flex; /* Alineación horizontal */
+  height: 140px; /* Altura fija para orden visual */
+  overflow: hidden;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.rm-card:hover {
+  border-color: #4b4b52;
+  background: #202024;
+  transform: translateY(-2px);
+}
+
+/* --- Miniatura Lateral --- */
+.rm-card__media {
+  width: 120px; /* Imagen pequeña y fija */
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.rm-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Status Minimalista --- */
+.rm-chip {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #19191c;
+}
+.rm-chip--alive { background: #04d361; box-shadow: 0 0 8px #04d361; }
+.rm-chip--dead { background: #f75a68; }
+.rm-chip--unknown { background: #828282; }
+
+/* --- Contenido Compacto --- */
+.rm-card__body {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  min-width: 0; /* Evita que el texto rompa el layout */
+}
+
+.rm-card__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Datos en una sola línea --- */
+.rm-card__dl {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+}
+
+.rm-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rm-row dt {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8d8d99;
+}
+
+.rm-row dd {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4c4cc;
+}
+
+/* --- Botones Pequeños --- */
+.rm-card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.rm-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #e1e1e6;
+  background: #29292e;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.rm-btn--primary {
+  background: #00875f;
+  color: #fff;
+}
+
+.rm-btn:hover {
+  filter: brightness(1.2);
+}
+
+/* --- Ajuste para Móviles --- */
+@media (max-width: 450px) {
+  .rm-grid { grid-template-columns: 1fr; }
+  .rm-card { height: auto; flex-direction: column; }
+  .rm-card__media { width: 100%; height: 150px; }
+}
